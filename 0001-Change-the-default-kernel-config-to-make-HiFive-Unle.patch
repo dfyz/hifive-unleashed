@@ -1,0 +1,35 @@
+From 321c3ea85612347eabe48f7b7a7faafadee0d0de Mon Sep 17 00:00:00 2001
+From: Ivan Komarov <Ivan.Komarov@dfyz.info>
+Date: Sun, 17 Mar 2019 20:56:14 +0300
+Subject: [PATCH] Change the default kernel config to make HiFive Unleashed
+ work with linux-next-20190306
+
+---
+ conf/linux_defconfig | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/conf/linux_defconfig b/conf/linux_defconfig
+index cd87340..df8d6aa 100644
+--- a/conf/linux_defconfig
++++ b/conf/linux_defconfig
+@@ -84,14 +84,15 @@ CONFIG_CLK_GEMGXL_MGMT=y
+ # CONFIG_IOMMU_SUPPORT is not set
+ CONFIG_PWM=y
+ CONFIG_PWM_SIFIVE=y
++CONFIG_SIFIVE_PLIC=y
+ CONFIG_NVMEM_SIFIVE_U500_OTP=y
+ CONFIG_EXT3_FS=y
+ # CONFIG_PROC_PAGE_MONITOR is not set
+ CONFIG_TMPFS=y
+ # CONFIG_MISC_FILESYSTEMS is not set
+ # CONFIG_NETWORK_FILESYSTEMS is not set
+-CONFIG_CMDLINE_BOOL=y
+-CONFIG_CMDLINE="earlyprintk"
++CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
++CONFIG_CMDLINE="earlycon=sbi"
+ CONFIG_PRINTK_TIME=y
+ CONFIG_STRIP_ASM_SYMS=y
+ CONFIG_DEBUG_SECTION_MISMATCH=y
+-- 
+2.19.1
+
